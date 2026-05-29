@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8FAFC">
+
+    <!-- Хедър -->
+    <LinearLayout
+        android:id="@+id/headerStats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:background="#FFFFFF">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Твоят Прогрес"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#1E293B"/>
+    </LinearLayout>
+
+    <!-- Основно съдържание (Центрирано) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/headerStats"
+        android:layout_above="@id/bottomNavigationCard"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="24dp">
+
+        <!-- Голяма визуална карта за статистика -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="32dp"
+            app:cardCornerRadius="24dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="40dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📈"
+                    android:textSize="48sp"
+                    android:layout_marginBottom="12dp"/>
+
+                <TextView
+                    android:id="@+id/tvStats"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 от 0 задачи"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:textColor="#4F46E5"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="завършени днес"
+                    android:textSize="14sp"
+                    android:textColor="#64748B"
+                    android:layout_marginTop="6dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Бутон за споделяне -->
+        <Button
+            android:id="@+id/btnShare"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Сподели постигнатото"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:backgroundTint="#10B981"
+            android:textColor="#FFFFFF"/>
+    </LinearLayout>
+
+    <!-- Долна Навигация -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bottomNavigationCard"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="6dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <Button android:id="@+id/btnNavHome" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="Задачи" android:textColor="#64748B" style="?android:attr/borderlessButtonStyle"/>
+            <Button android:id="@+id/btnNavAdd" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="+ Нова" android:textColor="#64748B" style="?android:attr/borderlessButtonStyle"/>
+            <Button android:id="@+id/btnNavCalendar" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="Календар" android:textColor="#64748B" style="?android:attr/borderlessButtonStyle"/>
+            <Button android:id="@+id/btnNavStats" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="Прогрес" android:textColor="#4F46E5" android:textStyle="bold" style="?android:attr/borderlessButtonStyle"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

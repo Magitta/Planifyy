@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8FAFC">
+
+    <LinearLayout
+        android:id="@+id/headerAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:background="#FFFFFF">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Нова задача"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#1E293B"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/headerAdd"
+        android:layout_above="@id/bottomNavigationCard"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <EditText
+                    android:id="@+id/etTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Име на задачата (напр. Изпит)"
+                    android:background="@android:drawable/editbox_background"
+                    android:padding="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:inputType="textPersonName"/>
+
+                <EditText
+                    android:id="@+id/etTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Час (напр. 10:30)"
+                    android:background="@android:drawable/editbox_background"
+                    android:padding="12dp"
+                    android:layout_marginBottom="16dp"
+                    android:inputType="text"/>
+
+                <Button
+                    android:id="@+id/btnSelectDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Избери дата (Кликни тук)"
+                    android:textColor="#4F46E5"
+                    android:backgroundTint="#EEF2F6"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:text="Запази в графика"
+            android:backgroundTint="#4F46E5"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"/>
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bottomNavigationCard"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="6dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <Button android:id="@+id/btnNavHome" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="Задачи" android:textColor="#64748B" style="?android:attr/borderlessButtonStyle"/>
+            <Button android:id="@+id/btnNavAdd" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="+ Нова" android:textColor="#4F46E5" android:textStyle="bold" style="?android:attr/borderlessButtonStyle"/>
+            <Button android:id="@+id/btnNavCalendar" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="Календар" android:textColor="#64748B" style="?android:attr/borderlessButtonStyle"/>
+            <Button android:id="@+id/btnNavStats" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="Прогрес" android:textColor="#64748B" style="?android:attr/borderlessButtonStyle"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

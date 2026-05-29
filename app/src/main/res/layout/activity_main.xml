@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8FAFC">
+
+    <LinearLayout
+        android:id="@+id/headerArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="24dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="12dp"
+        android:background="#FFFFFF">
+
+        <TextView
+            android:id="@+id/tvHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Planifyy"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#1E293B"/>
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/motivationCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/headerArea"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="#EEF2F6">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚡ Твоят ден с един поглед"
+                android:textStyle="bold"
+                android:textColor="#4F46E5"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Организирай задачите си хронологично, за да постигнеш целите си."
+                android:textColor="#475569"
+                android:textSize="13sp"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTasks"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/motivationCard"
+        android:layout_above="@id/bottomNavigationCard"
+        android:padding="12dp"
+        android:clipToPadding="false"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bottomNavigationCard"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="6dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <Button android:id="@+id/btnNavHome" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="Задачи" android:textColor="#4F46E5" android:textStyle="bold" style="?android:attr/borderlessButtonStyle"/>
+            <Button android:id="@+id/btnNavAdd" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="+ Нова" android:textColor="#64748B" style="?android:attr/borderlessButtonStyle"/>
+            <Button android:id="@+id/btnNavCalendar" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="Календар" android:textColor="#64748B" style="?android:attr/borderlessButtonStyle"/>
+            <Button android:id="@+id/btnNavStats" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="Прогрес" android:textColor="#64748B" style="?android:attr/borderlessButtonStyle"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
