@@ -1,61 +1,65 @@
 package com.example.planifyy
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    // Създаваме инстанция на нашия нов DatabaseHelper
     private lateinit var dbHelper: DatabaseHelper
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var tvEmptyState: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_add_task)
+        setContentView(R.layout.activity_main)
 
-        // Инициализираме новия помощник за базата
         dbHelper = DatabaseHelper(this)
+        recyclerView = findViewById(R.id.rvTasks)
+        tvEmptyState = findViewById(R.id.tvEmptyState)
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        findViewById<Button>(R.id.btnNavAdd).setOnClickListener {
+            startActivity(Intent(this, AddTaskActivity::class.java))
         }
 
-        val btnSave = findViewById<Button>(R.id.btnSave)
-        val etTitle = findViewById<EditText>(R.id.etTitle)
-        val etTime = findViewById<EditText>(R.id.etTime)
-
-        btnSave.setOnClickListener {
-            val title = etTitle.text.toString()
-            val time = etTime.text.toString()
-
-            if (title.isNotEmpty() && time.isNotEmpty()) {
-                // Извикваме нашия метод за добавяне
-                val id = dbHelper.addTask(title, time)
-
-                if (id != -1L) {
-                    Toast.makeText(this, "Успешно записано!", Toast.LENGTH_SHORT).show()
-                    etTitle.text.clear()
-                    etTime.text.clear()
-
-                    // ЧЕТЕНЕ НА ДАННИТЕ:
-                    // След запис веднага извличаме какво има в базата
-                    val allTasks = dbHelper.getAllTasks()
-                    Toast.makeText(this, "Всички задачи:\n$allTasks", Toast.LENGTH_LONG).show()
-
-                } else {
-                    Toast.makeText(this, "Грешка при запис!", Toast.LENGTH_SHORT).show()
-                }
-            } else {
-                Toast.makeText(this, "Попълни всички полета!", Toast.LENGTH_SHORT).show()
-            }
+        findViewById<Button>(R.id.btnNavCalendar).setOnClickListener {
+            startActivity(Intent(this, CalendarActivity::class.java))
         }
+
+        loadTasks()
+    }
+
+    private fun loadTasks() {
+        val calendar = Calendar.getInstance()
+        val today = "${calendar.get(Calendar.DAY_OF_MONTH)}/${calendar.get(Calendar.MONTH) + 1}/${calendar.get(Calendar.YEAR)}"
+
+        val taskList = dbHelper.getTasksForDate(today)
+
+        if (taskList.isEmpty()) {
+            tvEmptyState.visibility = View.VISIBLE
+            recyclerView.visibility = View.GONE
+        } else {
+            tvEmptyState.visibility = View.GONE
+            recyclerView.visibility = View.VISIBLE
+        }
+
+        val adapterData = taskList.map { Pair(it.first, it.second) }
+        val adapter = TaskAdapter(adapterData) { position: Int ->
+            dbHelper.deleteTask(taskList[position].first)
+            loadTasks()
+        }
+        recyclerView.adapter = adapter
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadTasks()
     }
 }

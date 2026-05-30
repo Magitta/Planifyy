@@ -32,11 +32,22 @@
         android:theme="@style/Theme.MaterialComponents.Light"
         android:focusedMonthDateColor="#4F46E5"/>
 
+    <TextView
+        android:id="@+id/tvTaskCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/calendarView"
+        android:padding="8dp"
+        android:gravity="center"
+        android:textColor="#4F46E5"
+        android:textStyle="italic"
+        android:text="Избери дата, за да видиш задачите"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCalendarTasks"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/calendarView"
+        android:layout_height="0dp"
+        android:layout_below="@id/tvTaskCount"
         android:layout_above="@id/bottomNavigationCard"
         android:padding="12dp"
         android:clipToPadding="false"/>

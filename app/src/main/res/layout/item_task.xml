@@ -21,7 +21,7 @@
             android:id="@+id/cbCompleted"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:buttonTint="#4F46E5"/>
+            android:buttonTint="#10B981"/>
 
         <!-- Текстов блок за Задачата -->
         <LinearLayout
@@ -53,9 +53,10 @@
         <!-- Червена кофа за изтриване -->
         <ImageButton
             android:id="@+id/btnDelete"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="?android:attr/selectableItemBackground"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:padding="12dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
             android:src="@android:drawable/ic_menu_delete"
             app:tint="#EF4444"
             android:contentDescription="Изтрий"/>

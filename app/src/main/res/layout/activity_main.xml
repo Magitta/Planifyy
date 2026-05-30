@@ -24,6 +24,16 @@
             android:textSize="28sp"
             android:textStyle="bold"
             android:textColor="#1E293B"/>
+
+        <TextView
+            android:id="@+id/tvEmptyState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Нямаш задачи за днес! 🎉"
+            android:textColor="#64748B"
+            android:textSize="16sp"
+            android:visibility="gone" />
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
@@ -48,20 +58,13 @@
                 android:textStyle="bold"
                 android:textColor="#4F46E5"
                 android:textSize="14sp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Организирай задачите си хронологично, за да постигнеш целите си."
-                android:textColor="#475569"
-                android:textSize="13sp"
-                android:layout_marginTop="4dp"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTasks"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_below="@id/motivationCard"
         android:layout_above="@id/bottomNavigationCard"
         android:padding="12dp"
