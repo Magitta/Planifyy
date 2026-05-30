@@ -22,7 +22,7 @@
             android:textColor="#1E293B"/>
     </LinearLayout>
 
-    <!-- Основно съдържание (Центрирано) -->
+    <!-- Основно съдържание (центрирано) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
             android:textColor="#FFFFFF"/>
     </LinearLayout>
 
-    <!-- Долна Навигация -->
+    <!-- Долна навигация -->
     <androidx.cardview.widget.CardView
         android:id="@+id/bottomNavigationCard"
         android:layout_width="match_parent"

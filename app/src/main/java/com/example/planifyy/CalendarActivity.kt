@@ -53,9 +53,9 @@ class CalendarActivity : AppCompatActivity() {
             "Планирани задачи: ${taskList.size}"
         }
 
-        // Подаваме taskList директно, тъй като TaskAdapter вече е настроен за него
+        // Подавам taskList директно, тъй като TaskAdapter вече е настроен за него
         val adapter = TaskAdapter(taskList) { position: Int ->
-            // Изтриваме по заглавие, което е на индекс 0
+            // Изтривам по заглавие, което е на индекс 0
             dbHelper.deleteTask(taskList[position][0].toString())
             updateTaskList(selectedDate)
         }

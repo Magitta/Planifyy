@@ -40,7 +40,7 @@ class AddTaskActivity : AppCompatActivity() {
             finish()
         }
 
-        // ТУК ДОБАВИХМЕ СТАТИСТИКАТА:
+        // ТУК-СТАТИСТИКАТА:
         findViewById<Button>(R.id.btnNavStats).setOnClickListener {
             startActivity(Intent(this, StatsActivity::class.java))
             finish()

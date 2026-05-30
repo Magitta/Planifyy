@@ -20,7 +20,7 @@ class StatsActivity : AppCompatActivity() {
         val completed = dbHelper.getCompletedTasksCount()
         val total = dbHelper.getTotalTaskCount()
 
-        // Показваме статистиката
+        // Показвам статистиката
         tvStats.text = "$completed от $total задачи"
 
         // Логика за споделяне

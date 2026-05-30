@@ -39,10 +39,10 @@ JUnit/Robolectric - 4.13 / 4.11
 Приложението работи локално и не изисква потребителски акаунти или автентикация в облак.
 
 Скрийншотове:
-![Основен екран](./docs/images/main.jpg)
-![Добавяне на задача](./docs/images/addtask.jpg)
-![Календар](./docs/images/calendar.jpg)
-![Статистика - Прогрес](./docs/images/progress.jpg)
+![Основен екран](./app/docs/images/main.jpg)
+![Добавяне на задача](./app/docs/images/addtask.jpg)
+![Календар](./app/docs/images/calendar.jpg)
+![Статистика - Прогрес](./app/docs/images/progress.jpg)
 
 APK:
 [Изтегли приложението тук](apk/app-release.apk)

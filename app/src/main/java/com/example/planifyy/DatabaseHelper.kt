@@ -41,7 +41,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "Planify.db",
         return db.delete("tasks", "title = ?", arrayOf(title)) > 0
     }
 
-    // Връщаме 4 елемента: title, time, date, isDone
+    // Връща 4 елемента: title, time, date, isDone
     fun getTasksForDate(date: String): List<Array<Any>> {
         val list = mutableListOf<Array<Any>>()
         val db = this.readableDatabase

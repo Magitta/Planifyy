@@ -33,7 +33,7 @@ class TaskAdapter(
         holder.title.text = title
         holder.time.text = task[1].toString()
 
-        // Настройваме чекбокса
+        // Настройвам чекбокса
         holder.checkBox.setOnCheckedChangeListener(null) // Важно: нулираме слушателя
         holder.checkBox.isChecked = (isDone == 1)
 
