@@ -33,6 +33,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, CalendarActivity::class.java))
         }
 
+        findViewById<Button>(R.id.btnNavStats).setOnClickListener {
+            startActivity(Intent(this, StatsActivity::class.java))
+        }
+
         loadTasks()
     }
 
@@ -50,9 +54,8 @@ class MainActivity : AppCompatActivity() {
             recyclerView.visibility = View.VISIBLE
         }
 
-        val adapterData = taskList.map { Pair(it.first, it.second) }
-        val adapter = TaskAdapter(adapterData) { position: Int ->
-            dbHelper.deleteTask(taskList[position].first)
+        val adapter = TaskAdapter(taskList) { position: Int ->
+            dbHelper.deleteTask(taskList[position][0].toString())
             loadTasks()
         }
         recyclerView.adapter = adapter

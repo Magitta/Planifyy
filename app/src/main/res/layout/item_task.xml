@@ -16,14 +16,12 @@
         android:padding="16dp"
         android:gravity="center_vertical">
 
-        <!-- Модерен лилав чекбокс -->
         <CheckBox
             android:id="@+id/cbCompleted"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:buttonTint="#10B981"/>
 
-        <!-- Текстов блок за Задачата -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -50,7 +48,6 @@
                 android:layout_marginTop="4dp"/>
         </LinearLayout>
 
-        <!-- Червена кофа за изтриване -->
         <ImageButton
             android:id="@+id/btnDelete"
             android:layout_width="48dp"

@@ -32,9 +32,17 @@ class AddTaskActivity : AppCompatActivity() {
             }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show()
         }
 
+        // Навигация
         findViewById<Button>(R.id.btnNavHome).setOnClickListener { finish() }
+
         findViewById<Button>(R.id.btnNavCalendar).setOnClickListener {
             startActivity(Intent(this, CalendarActivity::class.java))
+            finish()
+        }
+
+        // ТУК ДОБАВИХМЕ СТАТИСТИКАТА:
+        findViewById<Button>(R.id.btnNavStats).setOnClickListener {
+            startActivity(Intent(this, StatsActivity::class.java))
             finish()
         }
 
@@ -42,7 +50,6 @@ class AddTaskActivity : AppCompatActivity() {
             val title = etTitle.text.toString()
             val time = etTime.text.toString()
 
-            // Валидация за формат на часа (напр. 09:00)
             val timeRegex = Regex("^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$")
 
             if (title.isNotEmpty() && time.isNotEmpty() && selectedDate.isNotEmpty()) {

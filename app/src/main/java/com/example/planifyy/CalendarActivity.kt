@@ -32,6 +32,10 @@ class CalendarActivity : AppCompatActivity() {
             startActivity(Intent(this, AddTaskActivity::class.java))
             finish()
         }
+        findViewById<Button>(R.id.btnNavStats).setOnClickListener {
+            startActivity(Intent(this, StatsActivity::class.java))
+            finish()
+        }
 
         val calendarView = findViewById<CalendarView>(R.id.calendarView)
         calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
@@ -43,18 +47,16 @@ class CalendarActivity : AppCompatActivity() {
     private fun updateTaskList(selectedDate: String) {
         val taskList = dbHelper.getTasksForDate(selectedDate)
 
-        // Обновяваме текста с броя задачи
         tvTaskCount.text = if (taskList.isEmpty()) {
             "Нямаш задачи за $selectedDate"
         } else {
             "Планирани задачи: ${taskList.size}"
         }
 
-        // Подготвяме адаптера
-        val adapterData = taskList.map { Pair(it.first, it.second) }
-        val adapter = TaskAdapter(adapterData) { position: Int ->
-            dbHelper.deleteTask(taskList[position].first)
-            // Автоматично опресняване след изтриване
+        // Подаваме taskList директно, тъй като TaskAdapter вече е настроен за него
+        val adapter = TaskAdapter(taskList) { position: Int ->
+            // Изтриваме по заглавие, което е на индекс 0
+            dbHelper.deleteTask(taskList[position][0].toString())
             updateTaskList(selectedDate)
         }
         recyclerView.adapter = adapter

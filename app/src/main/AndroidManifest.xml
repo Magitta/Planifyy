@@ -22,8 +22,8 @@
         </activity>
 
         <activity android:name=".AddTaskActivity" />
-
         <activity android:name=".CalendarActivity" />
+        <activity android:name=".StatsActivity" />
 
     </application>
 
